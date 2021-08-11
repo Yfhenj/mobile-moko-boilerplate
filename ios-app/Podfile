@@ -1,0 +1,29 @@
+source 'https://cdn.cocoapods.org/'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+use_frameworks!
+platform :ios, '12.0'
+
+# workaround for https://github.com/CocoaPods/CocoaPods/issues/8073
+# need for correct invalidate of cache MultiPlatformLibrary.framework
+install! 'cocoapods', :disable_input_output_paths => true
+
+target 'ios-app' do
+  pod 'MultiPlatformLibrary', :path => '../mpp-library'
+  pod 'MultiPlatformLibraryUnits/Core',
+    :git => 'https://github.com/icerockdev/moko-units.git', :tag => 'release/0.5.1'
+  pod 'MultiPlatformLibraryUnits/Differ',
+    :git => 'https://github.com/icerockdev/moko-units.git', :tag => 'release/0.5.1'
+  pod 'MCRCDynamicProxy', 
+    :git => 'https://github.com/icerockdev/moko-crash-reporting.git', :tag => 'release/0.1.2'
+  pod 'MCRCStaticReporter', 
+    :git => 'https://github.com/icerockdev/moko-crash-reporting.git', :tag => 'release/0.1.2'
+
+  # pod 'Firebase', '~> 6.33.0'
+  # pod 'R.swift', '~> 5.3.1'           # Code generation for resources  https://github.com/mac-cain13/R.swift
+  # pod 'ProgressHUD', '~> 2.70'        # Loading animation https://github.com/relatedcode/ProgressHUD
+  # pod 'Toast-Swift', '~> 5.0.1'       # Showing toasts https://github.com/scalessec/Toast-Swift
+  # pod 'XLPagerTabStrip', '~> 9.0'     # Tabs controller like an Android PagerTabStrip
+end

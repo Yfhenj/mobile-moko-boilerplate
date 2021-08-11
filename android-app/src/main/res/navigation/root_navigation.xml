@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation"
+    app:startDestination="@id/auth">
+
+    <fragment
+        android:id="@+id/auth"
+        android:name="org.example.app.view.FragmentAuth"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_auth_to_list"
+            app:destination="@id/list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/list"
+        android:name="org.example.app.view.FragmentListSample"
+        tools:layout="@layout/fragment_list_sample"/>
+</navigation>
